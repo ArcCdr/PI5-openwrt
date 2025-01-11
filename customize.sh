@@ -20,7 +20,7 @@ if [ ! -f "$BANNER_FILE" ]; then
 fi
 
 # Extract everything below the first dashed line
-TAIL_CONTENT=$(awk '/^-----------------------------------------------------/ {found=1} found' "$BANNER_FILE")
+TAIL_CONTENT=$(awk '/^ -----------------------------------------------------/ {found=1} found' "$BANNER_FILE")
 
 # Check if the dashed line was found
 if [ -z "$TAIL_CONTENT" ]; then
@@ -30,8 +30,9 @@ fi
 
 # Replace the content of the banner with the new logo and the tail content
 {
-    cat "$LOGO_FILE"  # Add the new logo
-    echo "$TAIL_CONTENT"  # Add everything below the dashed line, including the dashed lines
+    cat "$LOGO_FILE"      # Add the new logo
+    echo ""               # Add a blank line
+    echo "$TAIL_CONTENT"  # Keep everything below the old logo
 } > "$BANNER_FILE"
 
 echo "Banner updated successfully!"
