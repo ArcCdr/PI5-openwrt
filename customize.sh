@@ -5,7 +5,7 @@ BANNER_FILE="/etc/banner"
 LOGO_FILE="mylogo.txt"
 
 # Downloads custom logo
-wget -O $LOGO_FILE https://downloads.openwrt.org/releases/24.10.0-rc5/targets/bcm27xx/bcm2712/config.buildinfo
+wget -O $LOGO_FILE https://raw.githubusercontent.com/ArcCdr/PI5-openwrt/refs/heads/main/mylogo.txt
 
 # Check if logo file exists
 if [ ! -f "$LOGO_FILE" ]; then
