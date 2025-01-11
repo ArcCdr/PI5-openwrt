@@ -10,7 +10,7 @@ ROOT_DISK="/dev/$(basename "${ROOT_BLK%/*}")"
 ROOT_PART="${ROOT_BLK##*[^0-9]}"
 OLD_PARTUUID=$(blkid -s PARTUUID -o value ${ROOT_DISK}p2)
 parted -f -s "${ROOT_DISK}" \
-resizepart "${ROOT_PART}" 5%
+resizepart "${ROOT_PART}" 5GB
 mount_root done
 NEW_PARTUUID=$(blkid -s PARTUUID -o value ${ROOT_DISK}p2)
 BOOT_PARTITION="/boot"
