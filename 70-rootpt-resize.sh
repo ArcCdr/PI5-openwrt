@@ -10,6 +10,7 @@ if [ ! -e /etc/rootpt-resize ] && type parted >/dev/null && lock -n /var/lock/ro
 
     # Resizes root partition
     parted -f -s "${ROOT_DISK}" resizepart "${ROOT_PART}" 5GB
+    sleep 1
     NEW_PARTUUID=$(blkid -s PARTUUID -o value ${ROOT_DISK}p${ROOT_PART})
     echo "New root partition's UUID (after resize): '$NEW_PARTUUID'."
 
