@@ -1,7 +1,7 @@
 # Check prerequisites
 if [ ! -e /etc/arcadian-customized ]; then
 
-    parted /dev/mmcblk0 mkpart primary ext4 5000MB 100%
+    parted /dev/mmcblk0 mkpart primary ext4 5001MB 100%
     mkfs.ext4 /dev/mmcblk0p3
     mkdir /mnt/data
     uci add fstab mount
